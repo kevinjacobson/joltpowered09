@@ -28,15 +28,17 @@ for i in range(5):
 			else:
 				val = str(num)
 
-					 
+			crop = im.crop(rect)			 
+			w,h = crop.size
+			crop = crop.resize((w/4,h/4))
 			if((count-2)/13==0):
-				im.crop(rect).save("spades/"+val+".jpg")
+				crop.save("spades/"+val+".jpg")
 			elif((count-2)/13==1):
-				im.crop(rect).save("hearts/"+val+".jpg")
+				crop.save("hearts/"+val+".jpg")
 			elif((count-2)/13==2):
-				im.crop(rect).save("clubs/"+ val+".jpg")
+				crop.save("clubs/"+ val+".jpg")
 			else:	
-				im.crop(rect).save("diamonds/"+val+".jpg")		
+				crop.save("diamonds/"+val+".jpg")		
 
 				
 print count
