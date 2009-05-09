@@ -74,6 +74,7 @@ public class BlackJackGUI extends javax.swing.JFrame {
                 jPanel1.setLayout(new java.awt.BorderLayout());
 
                 splitButton.setText("Spit");
+                splitButton.setEnabled(false);
                 splitButton.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 splitButtonActionPerformed(evt);
@@ -82,6 +83,7 @@ public class BlackJackGUI extends javax.swing.JFrame {
                 jPanel2.add(splitButton);
 
                 doubleDownButton.setText("Double Down");
+                doubleDownButton.setEnabled(false);
                 doubleDownButton.addActionListener(new java.awt.event.ActionListener() {
                         public void actionPerformed(java.awt.event.ActionEvent evt) {
                                 doubleDownButtonActionPerformed(evt);
@@ -134,6 +136,7 @@ public class BlackJackGUI extends javax.swing.JFrame {
                 newGamePrompt.setPreferredSize(new java.awt.Dimension(240, 157));
                 newGamePrompt.setVisible(true);
 
+                humanPlayers.setEditable(false);
                 humanPlayers.setText("1");
 
                 jLabel1.setText("Max Players:");
