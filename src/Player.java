@@ -62,11 +62,11 @@ public class Player {
 	}
 
 	public void win(){
-		_totalCash += _bet;
+		_totalCash += _bet*_hands.size();
 	}
 
 	public void lose(){
-		_totalCash -= _bet;
+		_totalCash -= _bet*_hands.size();
 	}
 	
 	public String getName(){
