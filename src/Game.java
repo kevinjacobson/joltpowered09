@@ -10,7 +10,7 @@ public class Game{
     //int numDecks, numPlayers;
     int numDiscardedDecks = 0;
     
-    public Game(int numPlayers , int numDecks){
+    public Game(int numPlayers ,  int numDecks){
         startGame(numPlayers , numDecks);
     }
     
@@ -125,9 +125,23 @@ public class Game{
         }
         return prob;
     }
+    
+    public int probablityOfGreaterHand(Player to){
+        probabilityOfGreaterHand(currPlayer , to);
+    }
 
-    //public int probablityOfGreaterHand(Player curr , Player to){
-        
+    public int probablityOfGreaterHand(Player curr , Player to){
+        int prob = 0;
+        for(int i = 0; i < curr.getHands().size(); i ++){
+            Hand currHand = curr.getHands().get(i);
+            for(int j = 0; j < to.getHands().size(); j ++){
+                Hand toHand = to.getHands().get(j);
+                for(int k = toHand.maxValue() - currHand.maxValue(); k <= 11;  k ++){
+                    prob += getNumCardsVal(k , curr);
+                }
+            }
+        }
+    }
         
     public int getNumCardsVal(int val , Player p){
         int numVal = 0;
