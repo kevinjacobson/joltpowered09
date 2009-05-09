@@ -5,6 +5,7 @@ public class Deck{
 
     public Deck(){
         deck = new ArrayList<Card>();
+	removedCards = new ArrayList<Card>();
         generateDeck();
     }
     
