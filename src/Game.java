@@ -1,12 +1,12 @@
 import java.util.*;
 public class Game{
     private final int STARTINGCASH = 200;
-    static ArrayList<Player> playerList;
+    ArrayList<Player> playerList;
     ArrayList<Deck> deckList;
-    static Player currPlayer;
-    static int currPlayerIndex;
-    static Hand currHand;
-    static int currHandIndex;
+    Player currPlayer;
+    int currPlayerIndex;
+    Hand currHand;
+    int currHandIndex;
     //int numDecks, numPlayers;
     int numDiscardedDecks = 0;
     
