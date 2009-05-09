@@ -19,13 +19,13 @@ for i in range(5):
 		if(count>=2 and count < 54):
 			num = (count-2)%13+1
 			if(num==1):
-				val = "ace"
+				val = "ACE"
 			elif(num==11):
-				val = "jack"
+				val = "JACK"
 			elif(num==12):
-				val = "queen"
+				val = "QUEEN"
 			elif(num==13):
-				val = "king"
+				val = "KING"
 			else:
 				val = str(num)
 
@@ -36,17 +36,17 @@ for i in range(5):
 			crop = crop.resize((w/4,h/4))
 			crop2 = crop2.resize((w2/4,h2/4))
 			if((count-2)/13==0):
-				crop.save("SPADES/"+val+".jpg")
-				crop2.save("SPADES/"+val+"S.jpg")
+				crop.save("SPADE/"+val+".jpg")
+				crop2.save("SPADE/"+val+"S.jpg")
 			elif((count-2)/13==1):
-				crop.save("HEARTS/"+val+".jpg")
-				crop2.save("HEARTS/"+val+"S.jpg")
+				crop.save("HEART/"+val+".jpg")
+				crop2.save("HEART/"+val+"S.jpg")
 			elif((count-2)/13==2):
-				crop.save("CLUBS/"+ val+".jpg")
-				crop2.save("CLUBS/"+val+"S.jpg")
+				crop.save("CLUB/"+ val+".jpg")
+				crop2.save("CLUB/"+val+"S.jpg")
 			else:	
-				crop.save("DIAMONDS/"+val+".jpg")
-				crop2.save("DIAMONDS/"+val+"S.jpg")		
+				crop.save("DIAMOND/"+val+".jpg")
+				crop2.save("DIAMOND/"+val+"S.jpg")		
 
 				
 print count
