@@ -36,9 +36,14 @@ public class Player {
 	
 	
 	
-	public Hand getHand(){
-		return Hand();
+	public ArrayList<Hand> getHands(){
+		return _hands;
 	}
+
+	public void createNewHand(){
+		_hands.add(new Hand());
+	}
+	
 	
 	public String getName(){
 		return _name;
