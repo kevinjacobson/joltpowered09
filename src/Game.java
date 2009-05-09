@@ -36,6 +36,9 @@ public class Game{
                     deckList.remove(0);
 
                 currHand.addCard(deckList.get(0).draw());
+		Card c = deckList.get(0).draw();
+		c.faceDown();
+		currHand.addCard(c);
             }
         }
         currPlayerIndex = 0;
