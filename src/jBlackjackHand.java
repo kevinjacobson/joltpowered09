@@ -26,7 +26,12 @@ public class jBlackjackHand extends javax.swing.JPanel {
 	for (int i = 0; i<cards.size(); i++) {
 		if (i+1==cards.size())
 			slice = "";
-		javax.swing.ImageIcon cardIcon = new javax.swing.ImageIcon("icons/"+cards.get(i).getSuit()+"/"+cards.get(i).getType()+slice+".jpg");
+		javax.swing.ImageIcon cardIcon;
+		if (cards.get(i).isFaceDown()) {
+			cardIcon = new javax.swing.ImageIcon("icons/back"+slice+".jpg");
+		} else {
+			cardIcon = new javax.swing.ImageIcon("icons/"+cards.get(i).getSuit()+"/"+cards.get(i).getType()+slice+".jpg");
+		}
 		javax.swing.JLabel cardLabel = new javax.swing.JLabel(cardIcon);
 		cardLabel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 		this.add(cardLabel);
