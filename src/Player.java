@@ -31,6 +31,15 @@ public class Player {
 		_bet = 0;
 		_hands = new ArrayList<Hand>();
 	}
+
+	public Hand getLargestHand(){
+		Hand max = _hands.get(0);
+		for(Hand h: _hands){
+			if(h.size()>max.size()) max = h;
+		}
+		return max;
+
+	}
 	
 	public int getBet(){
 		return _bet;
@@ -62,11 +71,11 @@ public class Player {
 	}
 
 	public void win(){
-		_totalCash += _bet;
+		_totalCash += _bet*_hands.size();
 	}
 
 	public void lose(){
-		_totalCash -= _bet;
+		_totalCash -= _bet*_hands.size();
 	}
 	
 	public String getName(){
