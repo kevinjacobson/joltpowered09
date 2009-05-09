@@ -43,5 +43,26 @@ public class Hand{
     public ArrayList<Card> getCards(){
         return cards;
     }
+
+    public int leastValue(){
+        ArrayList<Integer> valueList = getValue();
+        Collections.sort(valueList);
+        return valueList.get(0);
+    }
+
+    public int maxValue(){
+        ArrayList<Integer> valueList = getValue();
+        Collections.sort(valueList);
+        for(int i = valueList.size() - 1; i > 0; i --){
+            if(valueList.get(i) < 21)
+                return valueList.get(i);
+        }
+        return 0;
+    }
+    
+    
+    public int size(){
+        return cards.size();
+    }
 }
        
