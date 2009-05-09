@@ -16,7 +16,7 @@ public class Player {
 	private int _bet;
 	private boolean _in;
 
-	static enum {	
+	static enum MOVE {STAND,HIT,DOUBLEDOWN,SPLIT,OUT}	
 	/**
 	 * Default Constructor for player
 	 * @param name the name of this player
