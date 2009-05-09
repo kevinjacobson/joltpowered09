@@ -15,6 +15,7 @@ public class Player {
 	private int _totalCash;
 	private int _bet;
 	private boolean _in;
+	private MOVE _move;
 
 	static enum MOVE {STAND,HIT,DOUBLEDOWN,SPLIT,OUT}	
 	/**
@@ -43,7 +44,14 @@ public class Player {
 	public ArrayList<Hand> getHands(){
 		return _hands;
 	}
-
+	
+	public void setMove(MOVE move){
+		_move = move;
+	}	
+	
+	public MOVE getMove(){
+		return _move;
+	}
 	public void createNewHand(){
 		_hands.add(new Hand());
 	}
