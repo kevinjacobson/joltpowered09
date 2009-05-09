@@ -30,6 +30,7 @@ public class Player {
 		_totalCash = startingCash;
 		_bet = 0;
 		_hands = new ArrayList<Hand>();
+		_hands.add(new Hand());
 	}
 
 	public Hand getLargestHand(){
