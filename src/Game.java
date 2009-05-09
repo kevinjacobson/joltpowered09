@@ -60,10 +60,10 @@ public class Game{
     }
 
     public void stand(){
-        endAction();
+	    endAction();
     }
 
-    public void hit(){
+    public boolean hit(){
         if(deckList.get(0).getNumCards() <= 0){
             numDiscardedDecks ++;
             deckList.remove(0);
@@ -71,8 +71,11 @@ public class Game{
 
         currHand.addCard(deckList.get(0).draw());
         
-        if(currHand.leastValue() > 21)
-            endAction();
+        if(currHand.leastValue() > 21) {
+		endAction();
+		return false;
+	}
+	return true;
     }
     
     public void doubleDown(){
@@ -100,10 +103,12 @@ public class Game{
             }
         }
     }   
+
     public int getProbablity(int val){
         return getProbablity(val , currPlayer);
     }
 
+    // Returns probability of player p getting a card of value val
     public int getProbablity(int val , Player p){
         
         int numVal = getNumCardsVal(val , p);
@@ -115,6 +120,7 @@ public class Game{
                   (52 * deckList.size() - (52 * numDiscardedDecks + deckList.get(0).getNumRemovedCards()));
     }
     
+
     public int probabilityOfBusting(){
         return probabilityOfBusting(currPlayer);
     }
@@ -130,7 +136,7 @@ public class Game{
     }
     
     public int probablityOfGreaterHand(Player to){
-        probabilityOfGreaterHand(currPlayer , to);
+        return probabilityOfGreaterHand(currPlayer , to);
     }
 
     public int probablityOfGreaterHand(Player curr , Player to){
@@ -144,6 +150,7 @@ public class Game{
                 }
             }
         }
+	return prob;
     }
         
     public int getNumCardsVal(int val , Player p){

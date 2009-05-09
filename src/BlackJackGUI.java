@@ -1,6 +1,7 @@
 
 import java.beans.PropertyVetoException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,24 +40,22 @@ public class BlackJackGUI extends javax.swing.JFrame {
 
                 jPanel1 = new javax.swing.JPanel();
                 jPanel2 = new javax.swing.JPanel();
-                jButton1 = new javax.swing.JButton();
-                jButton2 = new javax.swing.JButton();
+                splitButton = new javax.swing.JButton();
+                doubleDownButton = new javax.swing.JButton();
                 jPanel4 = new javax.swing.JPanel();
+                jPanel6 = new javax.swing.JPanel();
+                jPanel7 = new javax.swing.JPanel();
+                jPanel3 = new javax.swing.JPanel();
+                hitButton = new javax.swing.JButton();
+                stayButton = new javax.swing.JButton();
+                jPanel5 = new javax.swing.JPanel();
                 newGamePrompt = new javax.swing.JInternalFrame();
                 humanPlayers = new javax.swing.JTextField();
-                computerPlayers = new javax.swing.JTextField();
                 jLabel1 = new javax.swing.JLabel();
-                jLabel2 = new javax.swing.JLabel();
                 decks = new javax.swing.JTextField();
                 jLabel3 = new javax.swing.JLabel();
                 newGameOK = new javax.swing.JButton();
                 jButton6 = new javax.swing.JButton();
-                jPanel3 = new javax.swing.JPanel();
-                jButton3 = new javax.swing.JButton();
-                jButton4 = new javax.swing.JButton();
-                jButton5 = new javax.swing.JButton();
-                jLayeredPane1 = new javax.swing.JLayeredPane();
-                jLayeredPane2 = new javax.swing.JLayeredPane();
                 menuBar = new javax.swing.JMenuBar();
                 fileMenu = new javax.swing.JMenu();
                 newMenuItem = new javax.swing.JMenuItem();
@@ -74,27 +73,70 @@ public class BlackJackGUI extends javax.swing.JFrame {
 
                 jPanel1.setLayout(new java.awt.BorderLayout());
 
-                jPanel2.setLayout(new java.awt.GridLayout(1, 0));
+                splitButton.setText("Spit");
+                splitButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                splitButtonActionPerformed(evt);
+                        }
+                });
+                jPanel2.add(splitButton);
 
-                jButton1.setText("Spit");
-                jPanel2.add(jButton1);
-
-                jButton2.setText("Double Down");
-                jPanel2.add(jButton2);
+                doubleDownButton.setText("Double Down");
+                doubleDownButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                doubleDownButtonActionPerformed(evt);
+                        }
+                });
+                jPanel2.add(doubleDownButton);
 
                 jPanel1.add(jPanel2, java.awt.BorderLayout.LINE_END);
 
+                jPanel4.setLayout(new java.awt.BorderLayout());
+                jPanel4.add(jPanel6, java.awt.BorderLayout.PAGE_START);
+
+                javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+                jPanel7.setLayout(jPanel7Layout);
+                jPanel7Layout.setHorizontalGroup(
+                        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
+                );
+                jPanel7Layout.setVerticalGroup(
+                        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 100, Short.MAX_VALUE)
+                );
+
+                jPanel4.add(jPanel7, java.awt.BorderLayout.PAGE_END);
+
+                jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+                hitButton.setText("Hit");
+                hitButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                hitButtonActionPerformed(evt);
+                        }
+                });
+                jPanel3.add(hitButton);
+
+                stayButton.setText("Stay");
+                stayButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                stayButtonActionPerformed(evt);
+                        }
+                });
+                jPanel3.add(stayButton);
+
+                jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
+
+                getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
+
                 newGamePrompt.setClosable(true);
                 newGamePrompt.setTitle("New Game");
+                newGamePrompt.setPreferredSize(new java.awt.Dimension(240, 157));
                 newGamePrompt.setVisible(true);
 
                 humanPlayers.setText("1");
 
-                computerPlayers.setText("3");
-
-                jLabel1.setText("Human Players:");
-
-                jLabel2.setText("Computer Players:");
+                jLabel1.setText("Max Players:");
 
                 decks.setText("6");
 
@@ -116,65 +158,57 @@ public class BlackJackGUI extends javax.swing.JFrame {
                         .addGroup(newGamePromptLayout.createSequentialGroup()
                                 .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(newGamePromptLayout.createSequentialGroup()
-                                                .addGap(12, 12, 12)
+                                                .addGap(29, 29, 29)
                                                 .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                         .addComponent(jLabel1)
-                                                        .addComponent(jLabel2)
                                                         .addComponent(jLabel3))
                                                 .addGap(42, 42, 42)
                                                 .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                         .addComponent(decks, javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(computerPlayers, javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addComponent(humanPlayers, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(newGamePromptLayout.createSequentialGroup()
                                                 .addGap(28, 28, 28)
                                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(newGameOK, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addContainerGap(31, Short.MAX_VALUE))
+                                .addContainerGap(29, Short.MAX_VALUE))
                 );
                 newGamePromptLayout.setVerticalGroup(
                         newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(newGamePromptLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                .addComponent(humanPlayers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jLabel1))
-                                        .addGroup(newGamePromptLayout.createSequentialGroup()
-                                                .addGap(42, 42, 42)
-                                                .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(computerPlayers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel2))))
+                                .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(humanPlayers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(decks, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(newGamePromptLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jButton6)
                                         .addComponent(newGameOK))
                                 .addContainerGap())
                 );
 
-                jPanel4.add(newGamePrompt);
+                javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+                jPanel5.setLayout(jPanel5Layout);
+                jPanel5Layout.setHorizontalGroup(
+                        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(70, 70, 70)
+                                .addComponent(newGamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(90, Short.MAX_VALUE))
+                );
+                jPanel5Layout.setVerticalGroup(
+                        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(newGamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                );
 
-                jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
-
-                jPanel3.setLayout(new java.awt.GridLayout(1, 0));
-
-                jButton3.setText("Hit");
-                jPanel3.add(jButton3);
-
-                jButton4.setText("Stay");
-                jPanel3.add(jButton4);
-
-                jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
-                jPanel1.add(jButton5, java.awt.BorderLayout.CENTER);
-
-                getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
-                getContentPane().add(jLayeredPane1, java.awt.BorderLayout.LINE_START);
-                getContentPane().add(jLayeredPane2, java.awt.BorderLayout.LINE_END);
+                getContentPane().add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
                 fileMenu.setText("File");
 
@@ -233,26 +267,80 @@ public class BlackJackGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void newMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newMenuItemActionPerformed
-	    newGamePrompt.setVisible(true);
-	    newGamePrompt.toFront();
+	    //newGamePrompt.setVisible(true);
+	    //newGamePrompt.toFront();
+	    int numPlayers = Integer.parseInt(humanPlayers.getText());
+	    int numDecks = Integer.parseInt(decks.getText());
+	    game = new Game(numPlayers,numDecks);
+
+	    newGamePrompt.setVisible(false);
+	    reloadCards();
     }//GEN-LAST:event_newMenuItemActionPerformed
 
     private void newGameOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newGameOKActionPerformed
 	    int numPlayers = Integer.parseInt(humanPlayers.getText());
-	    int numComputers = Integer.parseInt(computerPlayers.getText());
 	    int numDecks = Integer.parseInt(decks.getText());
-	    //game = new Game(numPlayers,numComputers,numDecks);
+	    game = new Game(numPlayers,numDecks);
 	    newGamePrompt.setVisible(false);
-	    Card card1 = new Card("10","spades",10);
-	    Card card2 = new Card("5","hearts",5);
-	    ArrayList<Card> cards = new ArrayList<Card>();
-	    cards.add(card2);
-	    cards.add(card1);
-	    Hand hand = new Hand(cards);
-	    jBlackjackHand myHand = new jBlackjackHand(hand);
-	    jPanel4.add(myHand);
-	    myHand.setVisible(true);
+	    //Card card1 = new Card("10","spades",10);
+	    //Card card2 = new Card("5","hearts",5);
+	    //ArrayList<Card> cards = new ArrayList<Card>();
+	    //cards.add(card2);
+	    //cards.add(card1);
+	    //Hand hand = new Hand(cards);
+	    reloadCards();
 }//GEN-LAST:event_newGameOKActionPerformed
+
+    private void hitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitButtonActionPerformed
+	    // TODO add your handling code here:
+
+	    if (!game.hit()) {
+		    newGamePrompt.setTitle("Game Over, you lose");
+		    newGamePrompt.setVisible(true);
+		    newGamePrompt.toFront();
+	    }
+	    reloadCards();
+}//GEN-LAST:event_hitButtonActionPerformed
+
+    private void stayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stayButtonActionPerformed
+	    // TODO add your handling code here:
+	    //game.stand();
+	    int val = game.currPlayer.getLargestHand().leastValue();
+	    if (val>=17){
+		    newGamePrompt.setTitle("You Win!");
+	    } else {
+		    newGamePrompt.setTitle("Game Over");
+	    }
+	    newGamePrompt.setVisible(true);
+	    newGamePrompt.toFront();
+	    reloadCards();
+    }//GEN-LAST:event_stayButtonActionPerformed
+
+    private void splitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_splitButtonActionPerformed
+	    // TODO add your handling code here:
+	    game.split();
+	    reloadCards();
+    }//GEN-LAST:event_splitButtonActionPerformed
+
+    private void doubleDownButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doubleDownButtonActionPerformed
+	    // TODO add your handling code here:
+	    game.doubleDown();
+	    reloadCards();
+    }//GEN-LAST:event_doubleDownButtonActionPerformed
+
+    public void reloadCards() {
+	    jPanel6.setVisible(false);
+	    jPanel6.removeAll();
+	    for (int i = 0; i < game.playerList.size(); i++) {
+		    System.out.println(game.playerList.get(i).getHands().size());
+		    for (int j = 0; j < game.playerList.get(i).getHands().size(); j++) {
+			    jBlackjackHand myHand = new jBlackjackHand(game.playerList.get(i).getHands().get(j));
+			    jPanel6.add(myHand);
+			    myHand.setVisible(true);
+		    }
+	    }
+	    jPanel6.setVisible(true);
+    }
 
     /**
     * @param args the command line arguments
@@ -267,37 +355,35 @@ public class BlackJackGUI extends javax.swing.JFrame {
 
         // Variables declaration - do not modify//GEN-BEGIN:variables
         private javax.swing.JMenuItem aboutMenuItem;
-        private javax.swing.JTextField computerPlayers;
         private javax.swing.JMenuItem contentsMenuItem;
         private javax.swing.JMenuItem copyMenuItem;
         private javax.swing.JMenuItem cutMenuItem;
         private javax.swing.JTextField decks;
         private javax.swing.JMenuItem deleteMenuItem;
+        private javax.swing.JButton doubleDownButton;
         private javax.swing.JMenu editMenu;
         private javax.swing.JMenuItem exitMenuItem;
         private javax.swing.JMenu fileMenu;
         private javax.swing.JMenu helpMenu;
+        private javax.swing.JButton hitButton;
         private javax.swing.JTextField humanPlayers;
-        private javax.swing.JButton jButton1;
-        private javax.swing.JButton jButton2;
-        private javax.swing.JButton jButton3;
-        private javax.swing.JButton jButton4;
-        private javax.swing.JButton jButton5;
         private javax.swing.JButton jButton6;
         private javax.swing.JLabel jLabel1;
-        private javax.swing.JLabel jLabel2;
         private javax.swing.JLabel jLabel3;
-        private javax.swing.JLayeredPane jLayeredPane1;
-        private javax.swing.JLayeredPane jLayeredPane2;
         private javax.swing.JPanel jPanel1;
         private javax.swing.JPanel jPanel2;
         private javax.swing.JPanel jPanel3;
         private javax.swing.JPanel jPanel4;
+        private javax.swing.JPanel jPanel5;
+        private javax.swing.JPanel jPanel6;
+        private javax.swing.JPanel jPanel7;
         private javax.swing.JMenuBar menuBar;
         private javax.swing.JButton newGameOK;
         private javax.swing.JInternalFrame newGamePrompt;
         private javax.swing.JMenuItem newMenuItem;
         private javax.swing.JMenuItem pasteMenuItem;
+        private javax.swing.JButton splitButton;
+        private javax.swing.JButton stayButton;
         // End of variables declaration//GEN-END:variables
 
 }
