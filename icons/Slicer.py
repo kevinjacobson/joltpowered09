@@ -36,17 +36,17 @@ for i in range(5):
 			crop = crop.resize((w/4,h/4))
 			crop2 = crop2.resize((w2/4,h2/4))
 			if((count-2)/13==0):
-				crop.save("spades/"+val+".jpg")
-				crop2.save("spades/"+val+"S.jpg")
+				crop.save("SPADES/"+val+".jpg")
+				crop2.save("SPADES/"+val+"S.jpg")
 			elif((count-2)/13==1):
-				crop.save("hearts/"+val+".jpg")
-				crop2.save("hearts/"+val+"S.jpg")
+				crop.save("HEARTS/"+val+".jpg")
+				crop2.save("HEARTS/"+val+"S.jpg")
 			elif((count-2)/13==2):
-				crop.save("clubs/"+ val+".jpg")
-				crop2.save("clubs/"+val+"S.jpg")
+				crop.save("CLUBS/"+ val+".jpg")
+				crop2.save("CLUBS/"+val+"S.jpg")
 			else:	
-				crop.save("diamonds/"+val+".jpg")
-				crop2.save("diamonds/"+val+"S.jpg")		
+				crop.save("DIAMONDS/"+val+".jpg")
+				crop2.save("DIAMONDS/"+val+"S.jpg")		
 
 				
 print count
