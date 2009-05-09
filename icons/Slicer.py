@@ -14,7 +14,7 @@ count = -1
 for i in range(5):
 	for j in range(11):
 		count += 1
-		rect = iWidth*j,iHeight*i,iWidth*(j+1),iHeight*(i+1)
+		rect = iWidth*j+20,iHeight*i+20,iWidth*(j+1)-20,iHeight*(i+1)-20
 		if(count>=2 and count < 54):
 			num = (count-2)%13+1
 			if(num==1):
