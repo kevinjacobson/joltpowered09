@@ -35,10 +35,10 @@ public class Game{
                 if(deckList.get(0).getNumCards() <= 0)
                     deckList.remove(0);
 
-                currHand.addCard(deckList.get(0).draw());
 		Card c = deckList.get(0).draw();
 		c.faceDown();
 		currHand.addCard(c);
+                currHand.addCard(deckList.get(0).draw());
             }
         }
         currPlayerIndex = 0;
