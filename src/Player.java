@@ -15,7 +15,8 @@ public class Player {
 	private int _totalCash;
 	private int _bet;
 	private boolean _in;
-	
+
+	static enum {	
 	/**
 	 * Default Constructor for player
 	 * @param name the name of this player
@@ -23,17 +24,20 @@ public class Player {
 	 * @param c1 first card dealt
 	 * @param c2 second card dealt
 	 */
-	public Player(String name,int startingCash,Card c1,Card c2){
+	public Player(String name,int startingCash){
 		_name = name;
 		_totalCash = startingCash;
 		_bet = 0;
 		_hands = new ArrayList<Hand>();
-		_hands.add(new Hand());
-		_hands.get(0).addCard(c1);
-		_hands.get(0).addCard(c2);
 	}
 	
-	
+	public int getBet(){
+		return _bet;
+	}
+
+	public int getTotal(){
+		return _totalCash;
+	}
 	
 	
 	public ArrayList<Hand> getHands(){
@@ -44,6 +48,18 @@ public class Player {
 		_hands.add(new Hand());
 	}
 	
+	
+	public void bet(int amount){
+		_bet = amount;
+	}
+
+	public void win(){
+		_totalCash += _bet;
+	}
+
+	public void lose(){
+		_totalCash -= _bet;
+	}
 	
 	public String getName(){
 		return _name;
