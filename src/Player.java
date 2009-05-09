@@ -57,6 +57,7 @@ public class Player {
 		for(Hand h: _hands){
 			result +="Hand " + index + ":\t\t" + h;
 		}
+		return result;
 	}
 	
 	
