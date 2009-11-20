@@ -139,7 +139,7 @@ public class Game{
         return probabilityOfGreaterHand(currPlayer , to);
     }
 
-    public int probablityOfGreaterHand(Player curr , Player to){
+    public int probabilityOfGreaterHand(Player curr , Player to){
         int prob = 0;
         for(int i = 0; i < curr.getHands().size(); i ++){
             Hand currHand = curr.getHands().get(i);

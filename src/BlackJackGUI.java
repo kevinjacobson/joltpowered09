@@ -45,10 +45,6 @@ public class BlackJackGUI extends javax.swing.JFrame {
                 jPanel4 = new javax.swing.JPanel();
                 jPanel6 = new javax.swing.JPanel();
                 jPanel7 = new javax.swing.JPanel();
-                jPanel3 = new javax.swing.JPanel();
-                hitButton = new javax.swing.JButton();
-                stayButton = new javax.swing.JButton();
-                jPanel5 = new javax.swing.JPanel();
                 newGamePrompt = new javax.swing.JInternalFrame();
                 humanPlayers = new javax.swing.JTextField();
                 jLabel1 = new javax.swing.JLabel();
@@ -56,6 +52,10 @@ public class BlackJackGUI extends javax.swing.JFrame {
                 jLabel3 = new javax.swing.JLabel();
                 newGameOK = new javax.swing.JButton();
                 jButton6 = new javax.swing.JButton();
+                jPanel3 = new javax.swing.JPanel();
+                hitButton = new javax.swing.JButton();
+                stayButton = new javax.swing.JButton();
+                jPanel5 = new javax.swing.JPanel();
                 menuBar = new javax.swing.JMenuBar();
                 fileMenu = new javax.swing.JMenu();
                 newMenuItem = new javax.swing.JMenuItem();
@@ -95,41 +95,6 @@ public class BlackJackGUI extends javax.swing.JFrame {
 
                 jPanel4.setLayout(new java.awt.BorderLayout());
                 jPanel4.add(jPanel6, java.awt.BorderLayout.PAGE_START);
-
-                javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-                jPanel7.setLayout(jPanel7Layout);
-                jPanel7Layout.setHorizontalGroup(
-                        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 400, Short.MAX_VALUE)
-                );
-                jPanel7Layout.setVerticalGroup(
-                        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 100, Short.MAX_VALUE)
-                );
-
-                jPanel4.add(jPanel7, java.awt.BorderLayout.PAGE_END);
-
-                jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
-
-                hitButton.setText("Hit");
-                hitButton.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                hitButtonActionPerformed(evt);
-                        }
-                });
-                jPanel3.add(hitButton);
-
-                stayButton.setText("Stay");
-                stayButton.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                stayButtonActionPerformed(evt);
-                        }
-                });
-                jPanel3.add(stayButton);
-
-                jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
-
-                getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
 
                 newGamePrompt.setClosable(true);
                 newGamePrompt.setTitle("New Game");
@@ -194,23 +159,46 @@ public class BlackJackGUI extends javax.swing.JFrame {
                                 .addContainerGap())
                 );
 
-                javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-                jPanel5.setLayout(jPanel5Layout);
-                jPanel5Layout.setHorizontalGroup(
-                        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(70, 70, 70)
+                javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+                jPanel7.setLayout(jPanel7Layout);
+                jPanel7Layout.setHorizontalGroup(
+                        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(71, 71, 71)
                                 .addComponent(newGamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(90, Short.MAX_VALUE))
+                                .addContainerGap(89, Short.MAX_VALUE))
                 );
-                jPanel5Layout.setVerticalGroup(
-                        jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addContainerGap()
+                jPanel7Layout.setVerticalGroup(
+                        jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(newGamePrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap())
                 );
 
+                jPanel4.add(jPanel7, java.awt.BorderLayout.PAGE_END);
+
+                jPanel1.add(jPanel4, java.awt.BorderLayout.PAGE_START);
+
+                hitButton.setText("Hit");
+                hitButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                hitButtonActionPerformed(evt);
+                        }
+                });
+                jPanel3.add(hitButton);
+
+                stayButton.setText("Stay");
+                stayButton.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                stayButtonActionPerformed(evt);
+                        }
+                });
+                jPanel3.add(stayButton);
+
+                jPanel1.add(jPanel3, java.awt.BorderLayout.LINE_START);
+
+                getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
                 getContentPane().add(jPanel5, java.awt.BorderLayout.PAGE_START);
 
                 fileMenu.setText("File");
@@ -332,17 +320,17 @@ public class BlackJackGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_doubleDownButtonActionPerformed
 
     public void reloadCards() {
-	    jPanel6.setVisible(false);
-	    jPanel6.removeAll();
+	    jPanel5.setVisible(false);
+	    jPanel5.removeAll();
 	    for (int i = 0; i < game.playerList.size(); i++) {
 		    System.out.println(game.playerList.get(i).getHands().size());
 		    for (int j = 0; j < game.playerList.get(i).getHands().size(); j++) {
 			    jBlackjackHand myHand = new jBlackjackHand(game.playerList.get(i).getHands().get(j));
-			    jPanel6.add(myHand);
+			    jPanel5.add(myHand);
 			    myHand.setVisible(true);
 		    }
 	    }
-	    jPanel6.setVisible(true);
+	    jPanel5.setVisible(true);
     }
 
     /**
